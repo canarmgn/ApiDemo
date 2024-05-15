@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class ApiService {
 
-    private static final String APİ_KEY = "gnRpWLDOtlL3sOGKnhXNRx4Tqny9cxNR";
+    private static final String API_KEY = "gnRpWLDOtlL3sOGKnhXNRx4Tqny9cxNR";
     public final ArticleRepository articleRepository;
 
     public ApiService(ArticleRepository articleRepository) {
@@ -20,7 +20,7 @@ public class ApiService {
     public String getData() {
         try {
             RestTemplate restTemplate = new RestTemplate();
-            String apiUrl = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + APİ_KEY;
+            String apiUrl = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + API_KEY;
             String response = restTemplate.getForObject(apiUrl, String.class);
             return response;
         } catch (Exception e) {

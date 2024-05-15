@@ -10,7 +10,9 @@ import org.springframework.data.annotation.Id;
 @Getter
 @Setter
 @Entity
+
 public class Article {
+
     @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
