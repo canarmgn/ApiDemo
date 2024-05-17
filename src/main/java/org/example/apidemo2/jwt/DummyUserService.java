@@ -13,11 +13,9 @@ public class DummyUserService {
 
     private Map<String, User> users = new HashMap<>();
 
-    @Postonstruct
+    @PostConstruct
     public void initialize() {
-        users.put("yusuf", new User("yusuf", "yusuf123",new ArrayList<>()));
-        users.put("metin", new User("metin", "metin123",new ArrayList<>()));
-        users.put("dilek", new User("dilek", "dilek123",new ArrayList<>()));
+        users.put("can", new User("can", "can123",new ArrayList<>()));
     }
 
     public User getUserByUsername(String username) {
