@@ -17,4 +17,5 @@ public class AuthRestController {
     public String creteToken(@RequestBody AuthRequest authRequest) throws Exception {
         return authService.getToken(authRequest);
     }
+
 }
