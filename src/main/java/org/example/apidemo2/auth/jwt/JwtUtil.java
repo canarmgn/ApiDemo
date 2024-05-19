@@ -1,4 +1,4 @@
-package org.example.apidemo2.jwt;
+package org.example.apidemo2.auth.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -14,7 +14,6 @@ import java.util.function.Function;
 @Service
 public class JwtUtil {
 
-    // hash işlemi yaparken kullanılacak key
     private String SECRET_KEY = "cancan";
 
     // verilen token a ait kullanıcı adını döndürür.

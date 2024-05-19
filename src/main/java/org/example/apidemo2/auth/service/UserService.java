@@ -1,4 +1,4 @@
-package org.example.apidemo2.jwt;
+package org.example.apidemo2.auth.service;
 
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class DummyUserService {
+public class UserService {
 
     private Map<String, User> users = new HashMap<>();
 

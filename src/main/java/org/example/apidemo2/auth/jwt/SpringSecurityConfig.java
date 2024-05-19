@@ -1,5 +1,6 @@
-package org.example.apidemo2.jwt;
+package org.example.apidemo2.auth.jwt;
 
+import org.example.apidemo2.auth.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
