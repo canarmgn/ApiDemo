@@ -21,17 +21,16 @@ public class ApiService {
         try {
             RestTemplate restTemplate = new RestTemplate();
             String apiUrl = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + API_KEY;
-            String response = restTemplate.getForObject(apiUrl, String.class);
-            return response;
+            return restTemplate.getForObject(apiUrl, String.class);
         } catch (Exception e) {
             e.printStackTrace();
-            return "API'den veri alınamadı.";
+            return "Data could not be retrieved from the API.";
         }
     }
 
     public String getHeadline() {
         String responseData = getData();
-        if (responseData.equals("API'den veri alınamadı.")) {
+        if (responseData.equals("Data could not be retrieved from the API.")) {
             return responseData;
         }
 
@@ -51,10 +50,10 @@ public class ApiService {
                 articleRepository.save(article);
             }
 
-            return "Veriler başarıyla kaydedildi.";
+            return "Data saved successfully.";
         } catch (Exception e) {
             e.printStackTrace();
-            return "Veri işlenirken bir hata oluştu.";
+            return "An error occurred while processing the data.";
         }
     }
 

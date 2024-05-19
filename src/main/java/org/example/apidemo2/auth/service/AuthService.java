@@ -22,11 +22,9 @@ public class AuthService {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
         } catch (BadCredentialsException ex) {
-            throw new Exception("Incorret username or password", ex);
+            throw new BadCredentialsException("Incorret username or password", ex);
         }
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authRequest.getUsername());
-        final String jwt = jwtUtil.generateToken(userDetails);
-
-        return jwt;
+        return jwtUtil.generateToken(userDetails);
     }
 }

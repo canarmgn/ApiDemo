@@ -14,7 +14,7 @@ import java.util.function.Function;
 @Service
 public class JwtUtil {
 
-    private String SECRET_KEY = "cancan";
+    private static final String SECRET_KEY = "cancan";
 
     // verilen token a ait kullanıcı adını döndürür.
     public String extractUsername(String token) {
@@ -57,7 +57,7 @@ public class JwtUtil {
     }
 
     // token hala geçerli mi? kullanıcı adı doğru ise ve token ın geçerlilik süresi devam ediyorsa true döner.
-    public Boolean validateToken(String token, UserDetails userDetails) {
+    public boolean validateToken(String token, UserDetails userDetails) {
         final String username = extractUsername(token);
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
