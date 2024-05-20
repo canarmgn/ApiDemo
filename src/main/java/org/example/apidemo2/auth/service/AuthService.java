@@ -18,11 +18,11 @@ public class AuthService {
     private final UserDetailsService userDetailsService;
     private final AuthenticationManager authenticationManager;
 
-    public String getToken(AuthRequest authRequest) throws Exception {
+    public String getToken(AuthRequest authRequest) {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
         } catch (BadCredentialsException ex) {
-            throw new BadCredentialsException("Incorret username or password", ex);
+            throw new BadCredentialsException("Incorrect username or password", ex);
         }
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authRequest.getUsername());
         return jwtUtil.generateToken(userDetails);
