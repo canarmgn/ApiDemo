@@ -14,7 +14,7 @@ public class AuthRestController {
     private final AuthService authService;
 
     @PostMapping("/login")
-    public String creteToken(@RequestBody AuthRequest authRequest) throws Exception {
+    public String creteToken(@RequestBody AuthRequest authRequest) {
         return authService.getToken(authRequest);
     }
 
