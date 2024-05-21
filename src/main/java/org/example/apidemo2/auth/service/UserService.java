@@ -1,24 +1,18 @@
 package org.example.apidemo2.auth.service;
 
-import org.springframework.security.core.userdetails.User;
+import lombok.RequiredArgsConstructor;
+import org.example.apidemo2.auth.repository.UserRepository;
+import org.example.apidemo2.auth.model.User;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
 @Service
+@RequiredArgsConstructor
 public class UserService {
 
-    private final Map<String, User> users = new HashMap<>();
-
-    @PostConstruct
-    public void initialize() {
-        users.put("can", new User("can", "can123",new ArrayList<>()));
-    }
+    private final UserRepository userRepository;
 
     public User getUserByUsername(String username) {
-        return users.get(username);
+        return userRepository.findByUsername(username)
+                .orElse(null);
     }
 }
