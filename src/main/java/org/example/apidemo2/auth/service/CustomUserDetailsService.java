@@ -28,7 +28,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         List<String> roles = user.getRoles().stream()
                 .map(Role::getName)
-                .collect(Collectors.toList());
+                .toList();
 
         Collection<GrantedAuthority> authorities = roles.stream()
                 .map(role -> "ROLE_" + role)

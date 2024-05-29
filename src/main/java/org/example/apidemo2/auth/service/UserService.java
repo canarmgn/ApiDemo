@@ -2,7 +2,6 @@ package org.example.apidemo2.auth.service;
 
 import lombok.RequiredArgsConstructor;
 import org.example.apidemo2.apiRespository.ArticleRepository;
-import org.example.apidemo2.auth.model.Role;
 import org.example.apidemo2.auth.model.User;
 import org.example.apidemo2.auth.model.UserRoles;
 import org.example.apidemo2.auth.repository.UserRepository;
@@ -39,11 +38,6 @@ public class UserService {
 
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
-    }
-
-    public User getUserByUsername(String username) {
-        return userRepository.findByUsername(username)
-                .orElse(null);
     }
 
     public List<Article> dailyHeadlines() {
