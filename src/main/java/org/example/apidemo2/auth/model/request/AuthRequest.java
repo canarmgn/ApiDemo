@@ -9,11 +9,11 @@ public class AuthRequest {
 
     private String username;
     private String password;
-    private String roleName;
 
-    public AuthRequest(String username, String password, String roleName) {
+
+    public AuthRequest(String username, String password) {
         this.username = username;
         this.password = password;
-        this.roleName = roleName;
+
     }
 }

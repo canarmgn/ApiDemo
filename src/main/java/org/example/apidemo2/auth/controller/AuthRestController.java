@@ -2,6 +2,7 @@ package org.example.apidemo2.auth.controller;
 
 
 import lombok.RequiredArgsConstructor;
+import org.example.apidemo2.auth.model.UserRoles;
 import org.example.apidemo2.auth.model.request.AuthRequest;
 import org.example.apidemo2.auth.service.AuthService;
 import org.example.apidemo2.auth.service.UserService;
@@ -30,6 +31,13 @@ public class AuthRestController {
         return "The user has been successfully registered.";
     }
 
+    @PostMapping("/addrole")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public String addRole(@RequestBody UserRoles userRoles) {
+        userService.addRoleToUser(userRoles.getUserId(), userRoles.getRoleId());
+        return "The role has been successfully added.";
+    }
+
     @DeleteMapping("/deleteuser/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String deleteUser(@PathVariable Long id) {
@@ -41,5 +49,6 @@ public class AuthRestController {
     public List<Article> dailyArticles() {
         return userService.dailyHeadlines();
     }
+
 
 }
